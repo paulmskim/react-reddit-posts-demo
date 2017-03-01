@@ -38,6 +38,7 @@ class PostList extends Component {
           !isFetching &&
             <a
               href='#'
+              className='refresh-button'
               onClick={e => {
                 e.preventDefault();
                 onClick();
