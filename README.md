@@ -1,7 +1,8 @@
 # React Reddit Posts Demo
 
 A Reddit posts demo made with React. This demo features async calls to fetch
-Reddit posts from 4 different Subreddits.
+Reddit posts from 4 different Subreddits. PostCSS and cssnext were used for
+styles.
 
 ## Getting started
 
