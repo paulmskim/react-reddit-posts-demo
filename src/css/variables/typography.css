@@ -1,0 +1,7 @@
+:root {
+  --rootFontSize: 16px;
+  --fontFamily: Helvetica, Arial, sans-serif;
+
+  --headerFontSize: 1.75rem;
+  --postTitleFontSize: 1.125rem;
+}

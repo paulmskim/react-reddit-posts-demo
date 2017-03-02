@@ -1,0 +1,5 @@
+:root {
+  --maxWidth: 40rem;
+
+  @custom-media --largePhone (width >= 30rem);
+}

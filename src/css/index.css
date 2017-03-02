@@ -1,0 +1,10 @@
+@import 'variables/**/*';
+@import 'abstractions/**/*';
+@import 'base/**/*';
+@import 'components/**/*';
+
+.reddit-posts-app {
+  max-width: var(--maxWidth);
+  padding: 1rem;
+  margin: 0 auto;
+}

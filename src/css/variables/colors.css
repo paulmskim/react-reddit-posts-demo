@@ -1,0 +1,13 @@
+:root {
+  --fontColor: #333;
+  --linkColor: #555;
+  --linkActiveColor: #888;
+
+  --linkBorderColor: #333;
+  --linkBgColor: #ddd;
+  --linkActiveBgColor: #bbb;
+
+  --upsColor: #888;
+
+  --postBorderColor: #aaa;
+}

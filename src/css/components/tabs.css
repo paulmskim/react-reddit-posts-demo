@@ -1,0 +1,26 @@
+.filter-tabs {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+}
+
+.filter-tab {
+  flex: 0 1 60%;
+  margin: 0.5rem auto;
+  &.active {
+    background-color: var(--linkActiveBgColor);
+  }
+  @apply --tab;
+}
+
+@media (--largePhone) {
+  .filter-tabs {
+    flex-wrap: nowrap;
+  }
+
+  .filter-tab {
+    flex: 0 1 20%;
+    margin: 0 auto;
+  }
+}
