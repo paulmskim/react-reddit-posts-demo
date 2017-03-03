@@ -4,9 +4,9 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --inline --hot",
-    "build": "./node_modules/.bin/webpack",
-    "prod": "./node_modules/.bin/webpack -p",
+    "dev": "webpack-dev-server --inline --hot",
+    "build": "webpack",
+    "prod": "webpack -p",
     "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
