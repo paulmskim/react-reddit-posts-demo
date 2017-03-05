@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { invalidateSubreddit, fetchPostsIfNeeded } from '../actions/actions';
-import PostList from './PostList';
+import { invalidateSubreddit, fetchPostsIfNeeded } from '../../actions/actions';
+import PostList from '../presentational/PostList';
 
-const getFilteredPosts = (posts, subreddit) => {
+const getPosts = (posts, subreddit) => {
   switch (subreddit) {
     case 'reactjs':
     case 'reduxjs':
@@ -16,7 +16,7 @@ const getFilteredPosts = (posts, subreddit) => {
 
 const mapStateToProps = (state) => (
   {
-    posts: getFilteredPosts(state.posts, state.selectedSubreddit),
+    posts: getPosts(state.posts, state.selectedSubreddit),
     subreddit: state.selectedSubreddit,
     isFetching: state.subreddits[state.selectedSubreddit].isFetching,
     lastUpdated: state.subreddits[state.selectedSubreddit].lastUpdated,
@@ -45,10 +45,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => (
   }
 );
 
-const FilteredPostList = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps,
   mergeProps
 )(PostList);
-
-export default FilteredPostList;

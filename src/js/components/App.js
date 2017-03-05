@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from './Header';
-import FilterTabs from './FilterTabs';
-import FilteredPostList from './FilteredPostList';
+import Header from './presentational/Header';
+import Tabs from './container/Tabs';
+import PostList from './container/PostList';
 
 const App = () => (
   <div className="reddit-posts-app">
     <Header />
-    <FilterTabs />
-    <FilteredPostList />
+    <Tabs />
+    <PostList />
   </div>
 );
 

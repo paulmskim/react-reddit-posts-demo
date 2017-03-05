@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { selectSubreddit } from '../actions/actions';
-import Tabs from './Tabs';
+import { selectSubreddit } from '../../actions/actions';
+import Tabs from '../presentational/Tabs';
 
 const mapStateToProps = (state, ownProps) => (
   {
@@ -19,9 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => (
   }
 );
 
-const FilterTabs = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Tabs);
-
-export default FilterTabs;

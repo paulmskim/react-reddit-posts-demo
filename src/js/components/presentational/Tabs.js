@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { selectSubreddit } from '../actions/actions';
+import { selectSubreddit } from '../../actions/actions';
 import Tab from './Tab';
 
 const Tabs = ({ subreddits, onClick }) => (
