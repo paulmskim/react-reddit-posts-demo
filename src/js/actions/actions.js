@@ -29,20 +29,19 @@ const requestPosts = subreddit => (
 const receivePosts = (subreddit, json) => {
   const date = new Date();
   const hours = date.getHours();
-  const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-  const seconds = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+  const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+  const seconds = date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds();
 
   return {
     type: RECEIVE_POSTS,
     subreddit,
     posts: json.data.children.map(child => child.data),
-    receivedAt: hours + ':' + minutes + ':' + seconds,
+    receivedAt: `${hours}:${minutes}:${seconds}`,
   };
-
 };
 
 const fetchPosts = subreddit => (
-  dispatch => {
+  (dispatch) => {
     dispatch(requestPosts(subreddit));
     return fetch(`https://www.reddit.com/r/${subreddit}.json`)
       .then(response => response.json())
@@ -51,17 +50,17 @@ const fetchPosts = subreddit => (
 );
 
 const shouldFetchPosts = (state, subreddit) => {
-  const posts = state.posts.filter(post =>
+  const posts = state.posts.filter(post => (
     post.subreddit === subreddit
-  ).length !== 0;
+  )).length !== 0;
 
   if (!posts) {
     return true;
   } else if (state.subreddits[subreddit].isFetching) {
     return false;
-  } else {
-    return state.subreddits[subreddit].didInvalidate;
   }
+
+  return state.subreddits[subreddit].didInvalidate;
 };
 
 export const fetchPostsIfNeeded = subreddit => (

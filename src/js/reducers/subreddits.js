@@ -2,7 +2,7 @@ import subreddit from './subreddit';
 import {
   INVALIDATE_SUBREDDIT,
   REQUEST_POSTS,
-  RECEIVE_POSTS
+  RECEIVE_POSTS,
 } from '../actions/actions';
 
 const subreddits = (state = {}, action) => {

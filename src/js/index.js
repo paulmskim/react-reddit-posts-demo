@@ -11,13 +11,13 @@ const store = createStore(
   reducers,
   initialState,
   applyMiddleware(
-    thunkMiddleware
-  )
+    thunkMiddleware,
+  ),
 );
 
 render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

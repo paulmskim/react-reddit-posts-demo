@@ -14,7 +14,7 @@ const getPosts = (posts, subreddit) => {
   }
 };
 
-const mapStateToProps = (state) => (
+const mapStateToProps = state => (
   {
     posts: getPosts(state.posts, state.selectedSubreddit),
     subreddit: state.selectedSubreddit,
@@ -24,7 +24,7 @@ const mapStateToProps = (state) => (
   }
 );
 
-const mapDispatchToProps = (dispatch) => (
+const mapDispatchToProps = dispatch => (
   {
     dispatch,
   }
@@ -48,5 +48,5 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => (
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-  mergeProps
+  mergeProps,
 )(PostList);

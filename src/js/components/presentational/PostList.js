@@ -2,12 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import Post from './Post';
 
 class PostList extends Component {
-  componentDidMount () {
+  componentDidMount() {
     const { onMount } = this.props;
     onMount();
-  };
+  }
 
-  render () {
+  render() {
     const {
       posts,
       subreddit,
@@ -17,29 +17,29 @@ class PostList extends Component {
     } = this.props;
 
     const postListClass = isFetching ?
-      'post-list post-list-' + subreddit + 'post-list-is-fetching' :
-      'post-list post-list-' + subreddit;
+      `post-list post-list-${subreddit} post-list-is-fetching` :
+      `post-list post-list-${subreddit}`;
 
     return (
-      <div className='posts'>
+      <div className="posts">
         {
           lastUpdated &&
-            <div className='last-updated'>
+            <div className="last-updated">
               Last Updated: {lastUpdated}
             </div>
         }
         {
           isFetching &&
-            <span className='is-fetching'>
+            <span className="is-fetching">
               Loading...
             </span>
         }
         {
           !isFetching &&
             <a
-              href='#'
-              className='refresh-button'
-              onClick={e => {
+              href="#"
+              className="refresh-button"
+              onClick={(e) => {
                 e.preventDefault();
                 onClick();
               }}
@@ -48,7 +48,7 @@ class PostList extends Component {
             </a>
         }
         <ul className={postListClass}>
-          {posts.map(post =>
+          {posts.map(post => (
             <Post
               key={post.id}
               id={post.id}
@@ -56,14 +56,14 @@ class PostList extends Component {
               title={post.title}
               url={post.url}
             />
-          )}
+          ))}
         </ul>
       </div>
     );
   }
 }
 
-PostList.PropTypes = {
+PostList.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     ups: PropTypes.number.isRequired,

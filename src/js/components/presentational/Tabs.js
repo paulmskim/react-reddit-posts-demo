@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
-import { selectSubreddit } from '../../actions/actions';
 import Tab from './Tab';
 
 const Tabs = ({ subreddits, onClick }) => (
-  <div className='filter-tabs'>
-    {subreddits.map(subreddit =>
+  <div className="filter-tabs">
+    {subreddits.map(subreddit => (
       <Tab
         key={subreddit.subreddit}
         active={subreddit.active}
@@ -12,8 +11,16 @@ const Tabs = ({ subreddits, onClick }) => (
       >
         {subreddit.subreddit}
       </Tab>
-    )}
+    ))}
   </div>
 );
+
+Tabs.propTypes = {
+  subreddits: PropTypes.arrayOf(PropTypes.shape({
+    subreddit: PropTypes.string.isRequired,
+    active: PropTypes.bool.isRequired,
+  }).isRequired).isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default Tabs;

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { selectSubreddit } from '../../actions/actions';
 import Tabs from '../presentational/Tabs';
 
-const mapStateToProps = (state, ownProps) => (
+const mapStateToProps = state => (
   {
     subreddits: Object.keys(state.subreddits).map(subreddit => (
       {
@@ -13,13 +13,13 @@ const mapStateToProps = (state, ownProps) => (
   }
 );
 
-const mapDispatchToProps = (dispatch, ownProps) => (
+const mapDispatchToProps = dispatch => (
   {
-    onClick: (subreddit) => dispatch(selectSubreddit(subreddit)),
+    onClick: subreddit => dispatch(selectSubreddit(subreddit)),
   }
 );
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Tabs);
